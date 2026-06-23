@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 19 - Đèn Kéo Quân</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #111; color: #fff; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        h1 { margin-bottom: 40px; color: #f1c40f; }
+        
+        /* Khung 3D cho đèn kéo quân */
+        .scene { width: 200px; height: 250px; perspective: 1000px; margin-bottom: 50px; }
+        .lantern { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s linear; }
+        .face { position: absolute; width: 200px; height: 250px; left: 0; top: 0; border: 2px solid #e74c3c; background: #222; }
+        .face img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Tọa độ xoay 6 mặt */
+        .face1 { transform: rotateY(0deg) translateZ(173px); }
+        .face2 { transform: rotateY(60deg) translateZ(173px); }
+        .face3 { transform: rotateY(120deg) translateZ(173px); }
+        .face4 { transform: rotateY(180deg) translateZ(173px); }
+        .face5 { transform: rotateY(240deg) translateZ(173px); }
+        .face6 { transform: rotateY(300deg) translateZ(173px); }
+
+        /* Vùng bài tập 18 và nút bấm */
+        .bai18-section { margin-top: 50px; text-align: center; max-width: 600px; border-top: 2px dashed #444; padding-top: 30px; }
+        .bai18-section img { width: 100%; max-width: 500px; border: 2px solid #fff; margin-top: 15px; }
+        .back-btn { margin-top: 30px; display: inline-block; padding: 10px 20px; background: #e74c3c; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>BÀI TẬP 19: ĐÈN KÉO QUÂN 3D</h1>
+
+    <div class="scene">
+        <div class="lantern" id="lantern">
+            <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH CỦA GIANG VÀO ĐÂY -->
+            <div class="face face1"><img src="anh1.jpg" alt="Ảnh 1"></div>
+            <div class="face face2"><img src="anh2.jpg" alt="Ảnh 2"></div>
+            <div class="face face3"><img src="anh3.jpg" alt="Ảnh 3"></div>
+            <div class="face face4"><img src="anh4.jpg" alt="Ảnh 4"></div>
+            <div class="face face5"><img src="anh5.jpg" alt="Ảnh 5"></div>
+            <div class="face face6"><img src="anh6.jpg" alt="Ảnh 6"></div>
+        </div>
+    </div>
+
+    <!-- Nút quay lại Portfolio (Đáp ứng kết hợp bài 17.3) -->
+    <a href="index.html" class="back-btn">← Quay lại trang Portfolio chính</a>
+
+    <!-- KẾT HỢP BÀI TẬP 18 (TRẮC NGHIỆM) -->
+    <div class="bai18-section">
+        <h2>KẾT QUẢ BÀI TẬP 18 (TRẮC NGHIỆM)</h2>
+        <!-- THAY TÊN FILE ẢNH CHỤP KẾT QUẢ TRẮC NGHIỆM BÀI 18 VÀO ĐÂY -->
+        <img src="ketqua_bai18.png" alt="Ảnh chụp kết quả trắc nghiệm Bài 18">
+    </div>
+
+    <script>
+        const lantern = document.getElementById('lantern');
+        let angle = 0;
+        let isRotating = true;
+
+        function rotateLantern() {
+            if (isRotating) {
+                angle -= 0.6; // Tốc độ xoay đèn
+                lantern.style.transform = `rotateY(${angle}deg)`;
+            }
+            requestAnimationFrame(rotateLantern);
+        }
+
+        // Rê chuột vào thì dừng, bỏ ra quay tiếp
+        lantern.addEventListener('mouseenter', () => isRotating = false);
+        lantern.addEventListener('mouseleave', () => isRotating = true);
+
+        rotateLantern();
+    </script>
+</body>
+</html>
