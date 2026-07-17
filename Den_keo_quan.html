@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài tập 19 - Đèn Kéo Quân</title>
+    <title>Bài tập 33 - Đèn Kéo Quân</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #111; color: #fff; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
-        h1 { margin-bottom: 40px; color: #f1c40f; }
+        h1 { margin-bottom: 40px; color: #f1c40f; text-align: center; }
         
         /* Khung 3D cho đèn kéo quân */
         .scene { width: 200px; height: 250px; perspective: 1000px; margin-bottom: 50px; }
@@ -23,19 +23,21 @@
         .face5 { transform: rotateY(240deg) translateZ(173px); }
         .face6 { transform: rotateY(300deg) translateZ(173px); }
 
-        /* Vùng bài tập 18 và nút bấm */
-        .bai18-section { margin-top: 50px; text-align: center; max-width: 600px; border-top: 2px dashed #444; padding-top: 30px; }
-        .bai18-section img { width: 100%; max-width: 500px; border: 2px solid #fff; margin-top: 15px; }
-        .back-btn { margin-top: 30px; display: inline-block; padding: 10px 20px; background: #e74c3c; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        /* Vùng bài tập 32 và nút bấm */
+        .bai32-section { margin-top: 50px; text-align: center; width: 100%; max-width: 800px; border-top: 2px dashed #444; padding-top: 30px; }
+        .iframe-container { width: 100%; height: 500px; border: 2px solid #fff; border-radius: 8px; margin-top: 15px; overflow: hidden; background: #fff;}
+        .back-btn { margin-top: 30px; display: inline-block; padding: 10px 20px; background: #e74c3c; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { background: #c0392b; }
+        .link-text { color: #f1c40f; word-break: break-all; margin-top: 10px; display: block; }
     </style>
 </head>
 <body>
 
-    <h1>BÀI TẬP 19: ĐÈN KÉO QUÂN 3D</h1>
+    <h1>BÀI TẬP 33: ĐÈN KÉO QUÂN 3D</h1>
 
     <div class="scene">
         <div class="lantern" id="lantern">
-            <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH CỦA GIANG VÀO ĐÂY -->
+            <!-- CHÚ Ý: Đảm bảo có 6 file ảnh từ anh1.jpg đến anh6.jpg nằm cùng thư mục với file HTML này -->
             <div class="face face1"><img src="anh1.jpg" alt="Ảnh 1"></div>
             <div class="face face2"><img src="anh2.jpg" alt="Ảnh 2"></div>
             <div class="face face3"><img src="anh3.jpg" alt="Ảnh 3"></div>
@@ -45,14 +47,20 @@
         </div>
     </div>
 
-    <!-- Nút quay lại Portfolio (Đáp ứng kết hợp bài 17.3) -->
-    <a href="index.html" class="back-btn">← Quay lại trang Portfolio chính</a>
+    <!-- Nút quay lại Portfolio Bài 32 -->
+    <a href="https://laserbouldergiangnguyen-boop.github.io/GiuaKyLTWTH/My%20portfolio/index.html" class="back-btn">← Quay lại trang Portfolio của Giang</a>
 
-    <!-- KẾT HỢP BÀI TẬP 18 (TRẮC NGHIỆM) -->
-    <div class="bai18-section">
-        <h2>KẾT QUẢ BÀI TẬP 18 (TRẮC NGHIỆM)</h2>
-        <!-- THAY TÊN FILE ẢNH CHỤP KẾT QUẢ TRẮC NGHIỆM BÀI 18 VÀO ĐÂY -->
-        <img src="ketqua_bai18.png" alt="Ảnh chụp kết quả trắc nghiệm Bài 18">
+    <!-- KẾT HỢP BÀI TẬP 32 (PORTFOLIO) -->
+    <div class="bai32-section">
+        <h2>KẾT QUẢ BÀI TẬP 32 (MY PORTFOLIO)</h2>
+        <a href="https://laserbouldergiangnguyen-boop.github.io/GiuaKyLTWTH/My%20portfolio/index.html" target="_blank" class="link-text">
+            https://laserbouldergiangnguyen-boop.github.io/GiuaKyLTWTH/My%20portfolio/index.html
+        </a>
+        
+        <!-- Nhúng trực tiếp trang Portfolio vào đây cho trực quan -->
+        <div class="iframe-container">
+            <iframe src="https://laserbouldergiangnguyen-boop.github.io/GiuaKyLTWTH/My%20portfolio/index.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
     </div>
 
     <script>
